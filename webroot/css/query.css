@@ -1,0 +1,273 @@
+@CHARSET "UTF-8";
+
+h1, h3 { 
+	text-align: center;
+}
+
+img {
+	border: 0;
+}
+
+body { 
+	background-color: white; 
+	font-family: tahoma,helvetica,sans-serif; 
+	font-size: 10pt;
+	width: 700px;
+	margin: auto auto;
+}
+
+.intestazione {
+	font-size: 20pt;
+	text-align: center;
+	background-color: #f3f3f3;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.piede {
+	float: left;
+	font-size: 10pt;
+	text-align: center;
+	background-color: #f3f3f3;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avviso {
+	text-align: center;
+	background-color: #99ff99;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avvisoRESIDENTE {
+	text-align: center;
+	background-color: #99ff99;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avvisoAIRE {
+	text-align: center;
+	background-color: #99ff99;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avvisoEMIGRATO {
+	text-align: center;
+	background-color: #9999ff;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avvisoIRREPERIBILE {
+	text-align: center;
+	background-color: #9999ff;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.avvisoDECEDUTO {
+	text-align: center;
+	background-color: #ff9999;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.attenzione {
+	text-align: center;
+	background-color: #ff3333;
+	width: 90%;
+}
+
+.scheda {
+	float: left;
+	text-align: center;
+	background-color: #d3d3d3;
+	width: 380px;
+}
+
+.residenze {
+	float: right;
+	text-align: center;
+	background-color: #d3d3d3;
+	width: 320px;
+} 
+
+.scheda .riga {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .riga .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 49%;
+	background-color: #f3f3f3;
+}
+
+.scheda .riga .elementobb{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 49%;
+	background-color: #83f383;
+}
+
+.scheda .riga .destro{
+	float: right;
+	margin: 2px;
+	width: 49%;
+	background-color: #f3f3f3;
+}
+
+.scheda .rigaRESIDENTE {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .rigaRESIDENTE .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 34%;
+	background-color: #99ff99;
+}
+
+.scheda .rigaRESIDENTE .destro{
+	float: right;
+	margin: 2px;
+	width: 64%;
+	background-color: #99ff99;
+}
+
+.scheda .rigaEMIGRATO {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .rigaEMIGRATO .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 34%;
+	background-color: #9999ff;
+}
+
+.scheda .rigaEMIGRATO .destro{
+	float: right;
+	margin-bottom: 2px;
+	width: 64%;
+	background-color: #9999ff;
+}
+
+.scheda .rigaDECEDUTO {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .rigaDECEDUTO .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 34%;
+	background-color: #ff9999;
+}
+
+.scheda .rigaDECEDUTO .destro{
+	float: right;
+	margin: 2px;
+	width: 64%;
+	background-color: #ff9999;
+}
+
+.scheda .rigaAIRE {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .rigaAIRE .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 34%;
+	background-color: #99ff99;
+}
+
+.scheda .rigaAIRE .destro{
+	float: right;
+	margin: 2px;
+	width: 64%;
+	background-color: #99ff99;
+}
+
+.scheda .rigaIRREPERIBILE {
+	text-align: left;
+	width: 99%;
+}
+
+.scheda .rigaIRREPERIBILE .elemento{
+	clear: left;
+	margin: 2px;
+	float: left;
+	width: 34%;
+	background-color: #9999ff;
+}
+
+.scheda .rigaIRREPERIBILE .destro{
+	float: right;
+	margin: 2px;
+	width: 64%;
+	background-color: #9999ff;
+}
+
+.residenze .rigaresidenza{
+	float: left;
+	text-align: left;	
+	background-color: #f3f3f3;
+	margin: auto auto;
+	width: 99%;
+}
+
+.residenze .rigaresidenza .nome{
+	float: left;
+	clear:left;
+	text-align: left;	
+	background-color: #d3d3d3;
+	margin: auto auto;
+	width: 50%;
+}
+
+.residenze .rigaresidenza .datanascita{
+	float: right;
+	text-align: left;	
+	background-color: #f3f3f3;
+	margin: auto auto;
+	width: 49%;
+}
+
+input {
+	background-color: white;
+	border: 0;
+	margin: 2px;
+}
+
+input[type=submit] {
+	background-color: #a0a0a0;
+	width: 90%;
+    border: 1;
+}
+
+.schedalogin {
+	text-align: center;
+	background-color: #d3d3d3;
+	width: 380px;
+	margin: auto auto;
+}
+
+.schedalogin .rigalogin {
+	text-align: right;
+	width: 99%;
+}

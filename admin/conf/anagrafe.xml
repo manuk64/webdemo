@@ -1,0 +1,26 @@
+<Context path="/@webapp@" debug="0" reloadable="true"> 
+	<Logger className="org.apache.catalina.logger.FileLogger" 
+		prefix="@webapp@_container." suffix=".txt" 
+		timestamp="true" /> 
+	<Valve className="org.apache.catalina.valves.AccessLogValve" 
+		prefix="@webapp@_access_log." suffix=".txt" 
+		pattern="common" /> 
+	<Parameter name="configVersion" value="test" override="false" /> 
+	<Parameter name="logName" value="@webapp@" override="false" /> 
+	<Parameter name="logFilePrefix" value="@tomcatHomePath@/logs/@webapp@_log" override="false" /> 
+	<Parameter name="logLevel" value="ALL" override="false" /> 
+	<Parameter name="applicationBaseURL" value="/@webapp@/" override="false" />
+	<Resource name="jdbc/DemogDatasource" auth="Container" type="javax.sql.DataSource" 
+		factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+		removeAbandoned="true" removeAbandonedTimeout="1800"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@192.168.4.84:1521:wapp"
+		username="@ora_username@" password="@ora_password@" />
+		
+	<Resource name="bean/LdapConfigFactory" auth="Container" 
+		type="it.comunecagliari.webdemo.system.models.LdapConfig"
+		factory="org.apache.naming.factory.BeanFactory"
+		ctxFactory="com.sun.jndi.ldap.LdapCtxFactory"
+		providerUrl="ldap://192.168.4.251:3060/dc=comune,dc=cagliari,dc=it" />
+
+</Context>

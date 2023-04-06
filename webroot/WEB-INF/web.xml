@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <display-name>@webapp@</display-name>
+  <description>Dati demografici</description>
+
+  <servlet>
+    <servlet-name>Residenti</servlet-name>
+    <servlet-class>it.comunecagliari.webdemo.system.ListaResidenti</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Residenti</servlet-name>
+    <url-pattern>/lista</url-pattern>
+  </servlet-mapping>
+
+  <taglib>
+  	<taglib-uri>/webtld</taglib-uri>
+  	<taglib-location>/WEB-INF/tlds/web.tld</taglib-location>
+  </taglib>
+  
+  <taglib>
+  	<taglib-uri>/standard</taglib-uri>
+  	<taglib-location>/WEB-INF/tlds/c.tld</taglib-location>
+  </taglib>
+
+</web-app>
+

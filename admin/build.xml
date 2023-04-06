@@ -1,0 +1,133 @@
+<project name="anagrafe" default="dist" basedir="..">
+	<description>Anagrafe Comune Cagliari - Full build file</description>
+	
+	<!-- Configure base properties -->
+	
+	<property name="aps.base.dir" location="." />
+	<!-- 
+	# Note: comment out the previous line and use the following
+	# if you're going to use another project - e.g. jAPS core - as
+	# a source for your aps.jar
+	#
+	# <property name="aps.base.dir" location="../japsFull" /> 
+	-->
+	
+	<property name="webappname" value="anagrafe" />
+	<property name="tomcat.home.path" location="/usr/local/tomcat_prod" />
+	<property name="oracle.username" value="anagrafe" />
+	<property name="oracle.password" value="osborne" />
+	
+	<!--
+	# Note: for Windows machines, this needs \ to be escaped
+	# ie Windows:  value="c:\\myapp\\cache"
+	# or *ix:  value="/opt/myapp/cache"
+	-->
+	<!-- <property name="cacheDiskRootFolder" value="/usr/local/tomcat_prod/webapps/${webappname}/cache" /> -->
+	
+	<!-- This is for Tomcat 5.x -->
+	<property name="tomcat.config.path" location="${tomcat.home.path}/conf/Catalina/localhost" />
+	
+	<!-- You should never need to configure the properties below this line -->
+	<property name="src.path" location="src" />
+	<property name="build.path" location="../temp/${webappname}/build" />
+	<property name="dist.path" location="../temp/${webappname}/dist" />
+	<property name="workdir.path" location="webroot" />
+	<property name="tomcat.deploy.path" location="${tomcat.home.path}/webapps" />
+	<property name="config.path" location="admin/conf" />
+	
+	<!-- VERY IMPORTANT : Do not modify the relative path inside the webappName directory, if not requested -->
+	<!-- <property name="cachePropertiesFilePath" location="${tomcat.home.path}/webapps/${webappname}/WEB-INF/aps/conf/oscache.properties" /> -->
+	
+	<!-- Define aps classpath -->
+	<path id="classpath">
+		<pathelement location="${build.path}/${webappname}/WEB-INF/classes" />
+		<fileset dir="./lib/">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Clean build area -->
+	<target name="clean" description="clean up build and dist directories">
+		<delete dir="${build.path}" />
+		<delete dir="${dist.path}" />
+	</target>
+
+	<!-- Init build area -->
+	<target name="init" depends="clean">
+		<copy todir="${build.path}/${webappname}">
+			<fileset dir="${workdir.path}" />
+		</copy>
+		<copy todir="${build.path}/${webappname}/WEB-INF/lib">
+			<fileset dir="./lib" />
+		</copy>
+		<mkdir dir="${build.path}/${webappname}/WEB-INF/classes" />
+		<!-- <mkdir dir="${build.path}/${webappname}/META-INF" /> -->
+		<!-- <copy file="${config.path}/${webappname}.xml" tofile="${build.path}/${webappname}/META-INF/context.xml" /> -->
+	</target>
+
+	<!-- generate the distribution -->
+	<target name="dist" depends="init" description="generate the distribution">
+		<copy todir="${dist.path}/${webappname}">
+			<fileset dir="${build.path}/${webappname}" />
+		</copy>
+		<copy file="${config.path}/${webappname}.xml" todir="${dist.path}" />
+		<!-- Replace parameters on ${webappname}.xml -->
+		<replace file="${dist.path}/${webappname}.xml">
+			<replacefilter token="@webapp@" value="${webappname}"/>
+			<replacefilter token="@tomcatHomePath@" value="${tomcat.home.path}"/>
+			<replacefilter token="@ora_username@" value="${oracle.username}"/>
+			<replacefilter token="@ora_password@" value="${oracle.password}"/>	
+		</replace>
+		<replace file="${dist.path}/${webappname}/WEB-INF/web.xml">
+			<replacefilter 
+				token="@webapp@" 
+			    value="${webappname}"/>	
+			</replace>			
+	</target>
+
+	<target name="build WAR" depends="Generate and include sis jar, dist">
+		<echo message="Generating context.xml...." />
+		<!-- Replace parameters on ${webappname}.xml -->
+		<replace file="${build.path}/${webappname}/META-INF/context.xml">
+			<replacefilter token="@webapp@" value="${webappname}"/>
+			<replacefilter token="@tomcatHomePath@" value="${tomcat.home.path}"/>
+			<replacefilter token="@ora_username@" value="${oracle.username}"/>
+			<replacefilter token="@ora_password@" value="${oracle.password}"/>			
+		</replace>
+		<replace file="${build.path}/${webappname}/WEB-INF/web.xml">
+			<replacefilter 
+				token="@webapp@" 
+			    value="${webappname}"/>	
+			</replace>			
+		<echo message="Packaging the WAR...." />
+		<delete file="${dist.path}/${webappname}.war" />
+		<jar jarfile="${dist.path}/${webappname}.war">
+			<fileset dir="${build.path}/${webappname}" />
+		</jar> 		
+	</target>	
+	
+	<!-- deploy the distribution -->
+	<target name="deploy">
+		<copy todir="${tomcat.deploy.path}/${webappname}">
+			<fileset dir="${dist.path}/${webappname}" />
+		</copy>
+		<copy file="${dist.path}/${webappname}.xml" todir="${tomcat.config.path}" />
+	</target>
+
+	<!-- WARNING! Use this task whit caution -->
+	<!-- Undeploy the application. Delete web app from container -->
+	<target name="undeploy">
+		<delete dir="${tomcat.deploy.path}/${webappname}" includeEmptyDirs="true"/>
+		<delete file="${tomcat.config.path}/${webappname}.xml" />
+	</target>
+	
+	<target name="Generate and include sis jar" description="Include">
+		<jar destfile="${basedir}/lib/sis.jar" basedir="${aps.base.dir}/classes">
+			<manifest>
+				<attribute name="Main-Class" value="aps"/>
+			</manifest>
+			<include name="it/**" />
+		</jar>
+	</target>
+
+</project>

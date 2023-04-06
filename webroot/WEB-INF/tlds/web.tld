@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+  <description>Libreria di tag per l'applicativo webdemo</description>
+  <tlib-version>1.1</tlib-version>
+  <short-name>wd</short-name>
+  <uri>/webtld</uri>
+
+  <tag>
+    <description>Lista indirizzi trovati</description>
+    <name>indirizzi</name>
+    <tag-class>it.comunecagliari.webdemo.tags.ListaIndirizziTag</tag-class>
+    <body-content>emtpy</body-content>
+    <attribute>
+      <description>Nome della Lista indirizzi trovati</description>
+      <name>nomelista</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Messaggio della Lista indirizzi trovati</description>
+      <name>nomemessaggio</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <description>Lista persone trovate</description>
+    <name>residenti</name>
+    <tag-class>it.comunecagliari.webdemo.tags.ListaResidentiTag</tag-class>
+    <body-content>emtpy</body-content>
+    <attribute>
+      <description>Nome della Lista persone trovate</description>
+      <name>nomelista</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Messaggio della Lista persone trovate</description>
+      <name>nomemessaggio</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <description>Dati della scheda del residente</description>
+    <name>schedaIndividuale</name>
+    <tag-class>it.comunecagliari.webdemo.tags.SchedaIndividualeTag</tag-class>
+    <body-content>emtpy</body-content>
+    <attribute>
+      <description>Nome dell'oggetto scheda</description>
+      <name>nomescheda</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <description>Dati della famiglia del residente</description>
+    <name>schedaFamiglia</name>
+    <tag-class>it.comunecagliari.webdemo.tags.SchedaFamigliaTag</tag-class>
+    <body-content>emtpy</body-content>
+    <attribute>
+      <description>Nome dell'oggetto scheda</description>
+      <name>nomescheda</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Messaggio della lista familiare</description>
+      <name>nomemessaggio</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+   <tag>
+    <description>Scheda di autenticazione</description>
+    <name>autenticazione</name>
+    <tag-class>it.comunecagliari.webdemo.tags.AutenticaTag</tag-class>
+    <body-content>emtpy</body-content>
+    <attribute>
+      <description>Nome dell'oggetto scheda</description>
+      <name>nomelogin</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Messaggio della autenticazione</description>
+      <name>nomemessaggio</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+</taglib>
+

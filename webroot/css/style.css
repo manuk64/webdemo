@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.attenzione {
+	width: 700px;
+}
+
+.scheda {
+	clear: left;
+	width: 700px;
+}
+
+.scheda .riga {
+	width: 99%;
+}
+
+.scheda .riga .elemento{
+	width: 20%;
+}
+
+.scheda .riga .elementobb{
+	width: 20%;
+}
+
+.scheda .riga .destro{
+	width: 78%;
+}
+
+.scheda .rigavariazioni {
+	width: 98%;
+	margin: 0em 0em 0.25em 0em;
+	text-align: left;
+	background-color: #f3f3f3;
+}
